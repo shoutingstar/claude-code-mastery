@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="김개발 | Frontend Developer - 현대적이고 반응형 포트폴리오">
+    <meta name="keywords" content="frontend, developer, portfolio, react, javascript">
+    <meta property="og:title" content="김개발 | Frontend Developer">
+    <meta property="og:description" content="3년 경력의 프론트엔드 개발자 포트폴리오">
+    <meta property="og:image" content="https://picsum.photos/1200/630?random=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>김개발 | Frontend Developer 포트폴리오</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 커스텀 스타일 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-white">
+    <!-- Header / Navigation -->
+    <header id="navbar" class="sticky top-0 z-50 bg-black transition-all duration-300">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- 로고 -->
+            <a href="#home" class="text-2xl font-bold text-emerald-400">
+                <i class="fas fa-code"></i> Dev
+            </a>
+
+            <!-- 데스크톱 메뉴 -->
+            <div class="hidden md:flex gap-8">
+                <a href="#about" class="text-gray-400 hover:text-emerald-400 transition">소개</a>
+                <a href="#skills" class="text-gray-400 hover:text-emerald-400 transition">기술</a>
+                <a href="#portfolio" class="text-gray-400 hover:text-emerald-400 transition">포트폴리오</a>
+                <a href="#contact" class="text-gray-400 hover:text-emerald-400 transition">연락처</a>
+            </div>
+
+            <!-- 모바일 햄버거 메뉴 버튼 -->
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 cursor-pointer" aria-label="메뉴 토글" aria-expanded="false">
+                <span class="w-6 h-0.5 transition-all"></span>
+                <span class="w-6 h-0.5 transition-all"></span>
+                <span class="w-6 h-0.5 transition-all"></span>
+            </button>
+        </nav>
+
+        <!-- 모바일 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-700 py-4 px-4">
+            <a href="#about" class="block py-2 text-gray-400 hover:text-emerald-400">소개</a>
+            <a href="#skills" class="block py-2 text-gray-400 hover:text-emerald-400">기술</a>
+            <a href="#portfolio" class="block py-2 text-gray-400 hover:text-emerald-400">포트폴리오</a>
+            <a href="#contact" class="block py-2 text-gray-400 hover:text-emerald-400">연락처</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen bg-black flex items-center justify-center px-4 py-20 relative">
+        <div class="max-w-6xl mx-auto w-full">
+            <!-- 2컬럼 레이아웃 -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 좌측: 텍스트 -->
+                <div class="text-left fade-in-up">
+                    <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">안녕하세요</p>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 uppercase">김개발</h1>
+                    <p class="text-2xl md:text-3xl text-emerald-400 mb-6 font-semibold">
+                        <span class="typing-cursor">Frontend Developer</span>
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        3년 경력의 프론트엔드 개발자입니다.<br>
+                        사용자 중심의 웹 경험을 만드는 것을 좋아합니다.
+                    </p>
+
+                    <!-- CTA 버튼 -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-emerald-500 text-black font-semibold px-8 py-3 rounded-lg hover:bg-emerald-400 transition transform hover:scale-105 inline-block">
+                            연락하기
+                        </a>
+                        <a href="#portfolio" class="border-2 border-emerald-400 text-emerald-400 font-semibold px-8 py-3 rounded-lg hover:bg-emerald-400 hover:text-black transition inline-block">
+                            포트폴리오 보기
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 우측: 프로필 이미지 (원형 배경) -->
+                <div class="flex justify-center fade-in-up delay-100">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <!-- 에메랄드 원형 배경 -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full opacity-90"></div>
+                        <!-- 프로필 이미지 -->
+                        <img src="https://picsum.photos/300/300?random=10" alt="김개발" class="absolute inset-4 rounded-full object-cover border-4 border-black">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 통계 카드 (하단) -->
+            <div class="grid md:grid-cols-2 gap-6 mt-16 fade-in-up delay-200">
+                <!-- 경력 카드 -->
+                <div class="bg-gray-900 border border-emerald-400 rounded-2xl p-8 text-center">
+                    <div class="flex items-baseline justify-center gap-2 mb-2">
+                        <span class="text-5xl font-bold text-emerald-400">6+</span>
+                        <span class="text-gray-400">years</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">경력</p>
+                </div>
+
+                <!-- 프로젝트 카드 -->
+                <div class="bg-gray-900 border border-emerald-400 rounded-2xl p-8 text-center">
+                    <div class="flex items-baseline justify-center gap-2 mb-2">
+                        <span class="text-5xl font-bold text-emerald-400">100+</span>
+                        <span class="text-gray-400">projects</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">완료된 프로젝트</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 스크롤 인디케이터 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-emerald-400 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-950">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center uppercase">
+                <span class="text-emerald-400">ABOUT</span> ME
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 프로필 이미지 -->
+                <div class="fade-in-up">
+                    <img src="https://picsum.photos/400/400?random=20" alt="프로필" class="rounded-2xl shadow-xl w-full border border-emerald-400">
+                </div>
+
+                <!-- 소개 텍스트 -->
+                <div class="fade-in-up delay-100">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">프론트엔드 개발자 김개발</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        안녕하세요! 저는 사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.
+                        React, JavaScript, CSS를 활용하여 성능 좋고 아름다운 웹 애플리케이션을 만드는 것에 열정을 가지고 있습니다.
+                    </p>
+
+                    <h4 class="text-lg font-semibold text-white mb-4">교육</h4>
+                    <p class="text-gray-300 mb-6">
+                        OO대학교 컴퓨터공학과 (2021 졸업)
+                    </p>
+
+                    <h4 class="text-lg font-semibold text-white mb-4">경력</h4>
+                    <div class="space-y-4">
+                        <!-- 타임라인 아이템 1 -->
+                        <div class="timeline-item pb-6">
+                            <h5 class="font-semibold text-white">ABC 소프트웨어</h5>
+                            <p class="text-sm text-gray-400">2022 ~ 현재 | Frontend Developer</p>
+                            <p class="text-gray-300 text-sm mt-2">React, TypeScript, Node.js 기반 웹 애플리케이션 개발</p>
+                        </div>
+
+                        <!-- 타임라인 아이템 2 -->
+                        <div class="timeline-item pb-6">
+                            <h5 class="font-semibold text-white">XYZ 스타트업</h5>
+                            <p class="text-sm text-gray-400">2021 ~ 2022 | Junior Developer</p>
+                            <p class="text-gray-300 text-sm mt-2">HTML, CSS, JavaScript 기반 반응형 웹사이트 개발</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center uppercase">
+                TECH <span class="text-emerald-400">SKILLS</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12">카테고리별로 보유한 기술들입니다</p>
+
+            <!-- 필터 버튼 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="skill-filter px-6 py-2 rounded-full bg-emerald-500 text-black font-medium transition hover:bg-emerald-400" data-category="all">
+                    모두 보기
+                </button>
+                <button class="skill-filter px-6 py-2 rounded-full bg-transparent text-gray-400 border-2 border-gray-700 font-medium transition hover:border-emerald-400" data-category="frontend">
+                    Frontend
+                </button>
+                <button class="skill-filter px-6 py-2 rounded-full bg-transparent text-gray-400 border-2 border-gray-700 font-medium transition hover:border-emerald-400" data-category="backend">
+                    Backend
+                </button>
+                <button class="skill-filter px-6 py-2 rounded-full bg-transparent text-gray-400 border-2 border-gray-700 font-medium transition hover:border-emerald-400" data-category="tools">
+                    Tools
+                </button>
+            </div>
+
+            <!-- 기술 배지 그리드 -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Frontend 스킬 -->
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up border border-gray-800 hover:border-emerald-400" data-category="frontend">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-code text-emerald-400 text-2xl"></i>
+                        <h3 class="font-semibold text-white">HTML/CSS</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">시맨틱 마크업, Tailwind CSS, 반응형 디자인</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-100 border border-gray-800 hover:border-emerald-400" data-category="frontend">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fab fa-js-square text-yellow-500 text-2xl"></i>
+                        <h3 class="font-semibold text-white">JavaScript</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">ES6+, Vanilla JS, DOM 조작, 비동기 처리</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-200 border border-gray-800 hover:border-emerald-400" data-category="frontend">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fab fa-react text-cyan-400 text-2xl"></i>
+                        <h3 class="font-semibold text-white">React</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">Hooks, Context API, 성능 최적화, 상태 관리</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-300 border border-gray-800 hover:border-emerald-400" data-category="backend">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fab fa-node-js text-green-600 text-2xl"></i>
+                        <h3 class="font-semibold text-white">Node.js</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">Express, REST API, 미들웨어, 환경 설정</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-100 border border-gray-800 hover:border-emerald-400" data-category="backend">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-database text-slate-300 text-2xl"></i>
+                        <h3 class="font-semibold text-white">데이터베이스</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">MongoDB, MySQL, 쿼리 최적화</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-200 border border-gray-800 hover:border-emerald-400" data-category="tools">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fab fa-git text-red-500 text-2xl"></i>
+                        <h3 class="font-semibold text-white">Git</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">버전 관리, 브랜칭, 협업, GitHub</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-300 border border-gray-800 hover:border-emerald-400" data-category="tools">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-pencil-ruler text-purple-400 text-2xl"></i>
+                        <h3 class="font-semibold text-white">Figma</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">프로토타이핑, UI/UX 디자인, 협업</p>
+                </div>
+
+                <div class="skill-badge bg-gray-900 p-6 rounded-xl hover:shadow-lg transition fade-in-up delay-100 border border-gray-800 hover:border-emerald-400" data-category="tools">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-terminal text-gray-300 text-2xl"></i>
+                        <h3 class="font-semibold text-white">DevTools</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">Webpack, Vite, npm, 성능 분석</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-950">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center uppercase">
+                MY <span class="text-emerald-400">CASES</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12">진행했던 프로젝트들입니다</p>
+
+            <!-- 필터 버튼 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-emerald-500 text-black font-medium transition hover:bg-emerald-400" data-tech="all">
+                    모두 보기
+                </button>
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-transparent text-gray-400 border-2 border-gray-700 font-medium transition hover:border-emerald-400" data-tech="react">
+                    React
+                </button>
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-transparent text-gray-400 border-2 border-gray-700 font-medium transition hover:border-emerald-400" data-tech="nodejs">
+                    Node.js
+                </button>
+            </div>
+
+            <!-- 프로젝트 카드 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 프로젝트 1: 쇼핑몰 웹앱 -->
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-emerald-400 transition fade-in-up group">
+                    <div class="relative h-48 bg-gradient-to-br from-indigo-600 to-indigo-800 overflow-hidden">
+                        <img src="https://picsum.photos/400/250?random=30" alt="쇼핑몰 웹앱" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                        <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="bg-emerald-500 text-black px-6 py-2 rounded-lg font-semibold hover:bg-emerald-400">
+                                자세히 보기
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">쇼핑몰 웹앱</h3>
+                        <p class="text-gray-400 text-sm mb-4">React 기반의 전자상거래 플랫폼입니다. 상품 검색, 장바구니, 결제 기능이 포함됩니다.</p>
+                        <div class="flex flex-wrap gap-2" data-tech="react">
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">React</span>
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">Node.js</span>
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 2: 날씨 대시보드 -->
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-emerald-400 transition fade-in-up delay-100 group">
+                    <div class="relative h-48 bg-gradient-to-br from-cyan-600 to-cyan-800 overflow-hidden">
+                        <img src="https://picsum.photos/400/250?random=40" alt="날씨 대시보드" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                        <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="bg-emerald-500 text-black px-6 py-2 rounded-lg font-semibold hover:bg-emerald-400">
+                                자세히 보기
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">날씨 대시보드</h3>
+                        <p class="text-gray-400 text-sm mb-4">실시간 날씨 정보를 제공하는 웹 애플리케이션입니다. 지역 검색 및 예보 기능이 있습니다.</p>
+                        <div class="flex flex-wrap gap-2" data-tech="react">
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">React</span>
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">OpenWeather API</span>
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 3: 포트폴리오 사이트 -->
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-emerald-400 transition fade-in-up delay-200 group">
+                    <div class="relative h-48 bg-gradient-to-br from-emerald-600 to-emerald-800 overflow-hidden">
+                        <img src="https://picsum.photos/400/250?random=50" alt="포트폴리오 사이트" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                        <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="bg-emerald-500 text-black px-6 py-2 rounded-lg font-semibold hover:bg-emerald-400">
+                                자세히 보기
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">포트폴리오 사이트</h3>
+                        <p class="text-gray-400 text-sm mb-4">개인 포트폴리오 웹사이트입니다. 반응형 디자인과 부드러운 스크롤 애니메이션이 특징입니다.</p>
+                        <div class="flex flex-wrap gap-2" data-tech="react">
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">HTML/CSS</span>
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">JavaScript</span>
+                            <span class="bg-gray-800 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-400">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center uppercase">
+                GET IN <span class="text-emerald-400">TOUCH</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12">언제든지 연락주세요. 성실하게 답변드리겠습니다.</p>
+
+            <!-- 연락처 폼 -->
+            <form id="contact-form" class="bg-gray-900 p-8 rounded-xl border border-gray-800" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-semibold text-white mb-2">이름</label>
+                    <input type="text" id="name" name="name" required placeholder="홍길동" class="w-full px-4 py-2 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-emerald-400 transition bg-gray-800 text-white placeholder-gray-500">
+                </div>
+
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-semibold text-white mb-2">이메일</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com" class="w-full px-4 py-2 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-emerald-400 transition bg-gray-800 text-white placeholder-gray-500">
+                </div>
+
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-semibold text-white mb-2">메시지</label>
+                    <textarea id="message" name="message" required rows="5" placeholder="여기에 메시지를 작성해주세요..." class="w-full px-4 py-2 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-emerald-400 transition bg-gray-800 text-white placeholder-gray-500 resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-500 text-black font-semibold py-3 rounded-lg hover:bg-emerald-400 transition transform hover:scale-105">
+                    메시지 보내기
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social" class="py-16 bg-gray-950">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-3">함께 소통해요</h2>
+                <p class="text-gray-400">다양한 채널에서 만나요</p>
+            </div>
+
+            <!-- SNS 카드 그리드 -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- GitHub -->
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="group">
+                    <div class="sns-card bg-gray-900 hover:bg-gray-800 rounded-2xl p-6 text-center transition transform hover:scale-105 border border-gray-800 hover:border-emerald-400">
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-gray-700 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition">
+                                <i class="fab fa-github text-gray-100 group-hover:text-black text-3xl transition"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">GitHub</h3>
+                        <p class="text-gray-400 text-sm mb-3">@devkim</p>
+                        <p class="text-emerald-400 text-xs">팔로우하기</p>
+                    </div>
+                </a>
+
+                <!-- YouTube -->
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="group">
+                    <div class="sns-card bg-gray-900 hover:bg-gray-800 rounded-2xl p-6 text-center transition transform hover:scale-105 border border-gray-800 hover:border-emerald-400">
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition">
+                                <i class="fab fa-youtube text-white group-hover:text-black text-3xl transition"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">YouTube</h3>
+                        <p class="text-gray-400 text-sm mb-3">@개발 강의</p>
+                        <p class="text-emerald-400 text-xs">팔로우하기</p>
+                    </div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="group">
+                    <div class="sns-card bg-gray-900 hover:bg-gray-800 rounded-2xl p-6 text-center transition transform hover:scale-105 border border-gray-800 hover:border-emerald-400">
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-gradient-to-tr from-purple-600 to-orange-400 w-16 h-16 rounded-full flex items-center justify-center group-hover:opacity-75 transition">
+                                <i class="fab fa-instagram text-white text-3xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">Instagram</h3>
+                        <p class="text-gray-400 text-sm mb-3">@dev_kim</p>
+                        <p class="text-emerald-400 text-xs">팔로우하기</p>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group">
+                    <div class="sns-card bg-gray-900 hover:bg-gray-800 rounded-2xl p-6 text-center transition transform hover:scale-105 border border-gray-800 hover:border-emerald-400">
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-blue-700 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition">
+                                <i class="fab fa-linkedin text-white group-hover:text-black text-3xl transition"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">LinkedIn</h3>
+                        <p class="text-gray-400 text-sm mb-3">Kim Developer</p>
+                        <p class="text-emerald-400 text-xs">팔로우하기</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-8 text-center border-t border-gray-800">
+        <p>&copy; 2026 김개발. All rights reserved.</p>
+    </footer>
+
+    <!-- 상단 이동 버튼 -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-emerald-500 text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-emerald-400 transition opacity-0 invisible" aria-label="상단으로 이동">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 스크립트 -->
+    <script src="js/script.js"></script>
+</body>
+</html>
